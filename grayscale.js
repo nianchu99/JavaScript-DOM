@@ -101,7 +101,7 @@ function createGSCanvas(img) {
 
   var ctx=canvas.getContext("2d");
   ctx.drawImage(img,0,0);
-
+   img.crossOrigin = '';
   // 注意：getImageData 只能操作与脚本位于同一个域中的图片
   var c = ctx.getImageData(0, 0, img.width, img.height);
   for (i=0; i<c.height; i++) {
