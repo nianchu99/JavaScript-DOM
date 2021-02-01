@@ -94,7 +94,7 @@ function convertToGS(img) {
 
 
 function createGSCanvas(img) {
-  img.crossOrigin = '';
+//   img.crossOrigin = '';
   var canvas=document.createElement("canvas");
   canvas.width= img.width;
   canvas.height=img.height;
