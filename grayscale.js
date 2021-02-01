@@ -1,16 +1,16 @@
 function addLoadEvent(func) {
-    	// body...
-    	var oldonload = window.onload;
-    	if (typeof window.onload != 'function'){
-    		window.onload = func;
-    	}
-    	else{
-    		window.onload = function () {
-    			// body...
-    			oldonload();
-    			func();
-    		}
-    	}
+        // body...
+        var oldonload = window.onload;
+        if (typeof window.onload != 'function'){
+            window.onload = func;
+        }
+        else{
+            window.onload = function () {
+                // body...
+                oldonload();
+                func();
+            }
+        }
     }
     // Create a function to realize insertAfter
     function insertAfter(new_element, target_element) {
@@ -94,13 +94,13 @@ function convertToGS(img) {
 
 
 function createGSCanvas(img) {
-//   img.crossOrigin = '';
+ 
   var canvas=document.createElement("canvas");
   canvas.width= img.width;
   canvas.height=img.height;
 
   var ctx=canvas.getContext("2d");
-  ctx.drawImage(img,0,0);
+  ctx.drawImage(img,0,0, );
   // 注意：getImageData 只能操作与脚本位于同一个域中的图片
   var c = ctx.getImageData(0, 0, img.width, img.height);
   for (i=0; i<c.height; i++) {
@@ -112,6 +112,10 @@ function createGSCanvas(img) {
       c.data[x] = c.data[x+1] = c.data[x+2] = (r+g+b)/3;
     }
   }
+
+
+// alert(img.width);
+// alert(img.height);
 
 
   ctx.putImageData(c,0,0,0,0, c.width, c.height);
